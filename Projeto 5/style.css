@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-heading: 'Epilogue', sans-serif;
+    --ff-textting: 'Open sans', sans-serif;
+
+    --bg-primary: #1d1d22;
+    --fc-primary: #b9b5b5;
+    --fc-secondary: #73777e;
+
+    --fs-body: 1.6rem;
+    --fs-heading: clamp(4rem, 1rem + 5vw, 5.6rem);
+    --fs-heading-sm: clamp(3rem, 0.5rem + 3vw, 4rem);
+
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--ff-textting);
+
+    background-color: var(--bg-primary);
+    color: var(--fc-primary);
+    padding-bottom: 4rem;
+}
+
+.page {
+    max-width: 33rem;
+    margin: 0 auto;
+    
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+    }
+
+header {
+    margin: 10rem 0 8rem;
+    font-family: var(--ff-heading);
+
+    text-align: center;
+
+}
+
+header p {
+    color: var(--fc-secondary);
+    text-transform: uppercase;
+
+    line-height: 3.2rem;
+    letter-spacing: 3px;
+
+    font-weight: 400;
+
+    margin-bottom: 1.7rem;
+
+}
+
+header h1 {
+    font-weight: 800;
+    font-size: var(--fs-heading);
+    line-height: 4.8rem;
+
+}
+
+main {
+    display: grid;
+    gap: 3.2rem;
+}
+.card {
+    position: relative;
+}
+.card img {
+    height: 41.6rem;    
+    object-fit: cover;
+
+    border-radius: 6px;
+
+    transition: all 200ms;
+
+    filter: brightness(0.8) saturate(1.5);    
+    
+         
+}
+
+.card img:hover{
+    transform: scale(1.1);
+    opacity: 0.4;
+}
+
+.card h2 {
+    position: absolute;
+    bottom: 5.1rem;
+    left: 2.8rem;
+
+    font-size: var(--fs-heading-sm);
+    font-weight: 800;
+    color: var(--fc-primary);
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+}
+
+.card h2 span {
+    border-radius: 2rem;
+    background-color: var(--fc-primary);
+    font-size: var(--fs-body);
+    color: var(--bg-primary);
+    font-weight: 400;
+    padding: 0 1.6rem;
+    height: 3.8rem;
+    font-family: var(--ff-heading);
+    
+
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+    
+}
+
+/* Abaixo Tags responssavel pelo efeito de queda do titulo e body */
+
+header {
+    animation-name: topdown;
+
+}
+
+header p {
+    animation: topdown 1000ms 20ms backwards;
+    font-size: 1.5rem;
+ 
+}
+
+@keyframes topdown {
+    0% {
+        opacity: 0;
+        transform: translatey(-95px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+header h1 {
+    animation: topdown 700ms 500ms backwards;
+}
+
+@keyframes topdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-90px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    animation: leftcenter 700ms 500ms backwards;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+@keyframes leftcenter {
+    0% {
+        opacity: 0;
+        transform: translateX(-90px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 700px) {
+    .page {
+        max-width: 117rem;
+        padding: 0 5rem ;
+    }
+
+    main {
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+
+@media (min-width: 930px) {
+
+
+    main {
+        grid-template-areas:"A B B" "C C D";
+
+        grid-template-columns: 1fr 1fr 1fr
+    }
+
+    main div:nth-child(1) {
+        grid-area: A;
+    }
+
+    main div:nth-child(2) {
+        grid-area: B;
+    }
+
+    main div:nth-child(3) {
+        grid-area: C;
+    }
+
+    main div:nth-child(4) {
+        grid-area: D;
+    }
+}
+
